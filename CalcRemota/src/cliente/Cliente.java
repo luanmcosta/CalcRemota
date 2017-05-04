@@ -27,6 +27,10 @@ public class Cliente {
         // Declarar e Instanciar Operação
         Operacao operacao = new Operacao();
         
+        // Obter informação do cliente
+        System.out.print("Digite seu nome: ");
+        operacao.setRequisitante(sc.nextLine());
+        
         try {
             // Tentar realizar conexão com o servidor
             cliente_servidor = new Socket("localhost", 20171);
@@ -43,7 +47,7 @@ public class Cliente {
                 operacao.setB(sc.nextDouble());
                 
                 // Enviar operação
-                saidaDados.writeObject(operacao);
+                saidaDados.writeObject(new Operacao(operacao));
                 
                 // Receber resposta
                 System.out.println("Resultado: " + entradaDados.readObject());

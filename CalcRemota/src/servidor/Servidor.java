@@ -12,6 +12,8 @@ import modelos.Operacao;
 public class Servidor {
 
     public static void main(String[] args) {
+        System.out.println("Servidor Iniciado!");
+        
         // Socket do Servidor
         ServerSocket servidor;
         
@@ -43,7 +45,7 @@ public class Servidor {
                 
                 // Imprimir requisição
                 System.out.println("Operação requisitada: ");
-                System.out.println(String.valueOf(cliente.getInetAddress().getAddress()) + ": " + operacao.getA() + " " + operacao.getTipo() + " " + operacao.getB() + " = " + operacao.calcular());
+                System.out.println(operacao.getRequisitante() + ": " + operacao.getA() + " " + operacao.getTipo() + " " + operacao.getB() + " = " + operacao.calcular());
                                 
                 // Enviar resultado da operação
                 saidaDados.writeObject(operacao.calcular());

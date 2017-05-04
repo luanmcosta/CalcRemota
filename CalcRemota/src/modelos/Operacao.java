@@ -4,12 +4,20 @@ import java.io.Serializable;
 
 public class Operacao implements Serializable{
     // Atributos
+    private String requisitante;
     private double A;
     private double B;
     private char tipo;
     
     // Construtor(es)
     public Operacao() {
+    }
+    
+    public Operacao(Operacao operacao){
+        this.A = operacao.getA();
+        this.B = operacao.getB();
+        this.tipo = operacao.getTipo();
+        this.requisitante = operacao.getRequisitante();
     }
     
     public Operacao(double A, double B) {
@@ -23,6 +31,16 @@ public class Operacao implements Serializable{
         this.B = B;
         this.tipo = tipo;
     }
+
+    public String getRequisitante() {
+        return requisitante;
+    }
+
+    public void setRequisitante(String requisitante) {
+        this.requisitante = requisitante;
+    }
+    
+    
     
     // Métodos Getters e Setters
     public double getA() {
